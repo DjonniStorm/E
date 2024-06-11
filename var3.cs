@@ -718,3 +718,29 @@ private void buttonEventUnSub2_Click(object sender, EventArgs e)
     if (func2 == null) return;
     func2 -= func2;
 }
+
+
+//№6
+private void buttonSave_Click(object sender, EventArgs e)
+{
+    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+    {
+        string filename = saveFileDialog1.FileName;
+        if (File.Exists(filename))
+        {
+            File.Delete(filename);
+        }
+        using (StreamWriter writer = new (filename))
+        {
+            StringBuilder builder = new ();
+            foreach (var item in listBoxSave.Items)
+            {
+                builder.Append(item.ToString());
+                builder.Append(Environment.NewLine); //из лаб 
+            }
+            writer.Write(builder);
+        }
+    }
+}
+
+№7
