@@ -172,6 +172,9 @@ private void button1_Click(object sender, EventArgs e)
     //второй метод и результат от него
     listBoxResult.Items.Insert(listBoxResult.Items.Count, a.method(Convert.ToInt32(textBoxMethod2.Text)));
 
+    //чек индексатора
+    listBoxResult.Items.Insert(listBoxResult.Items.Count, a[5]);
+
 }
 class Task1 : ITask3
 {
