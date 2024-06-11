@@ -743,4 +743,46 @@ private void buttonSave_Click(object sender, EventArgs e)
     }
 }
 
-№7
+//№7
+
+[Serializable]
+public class MyException : ApplicationException
+{
+    public MyException(int count) : base("Меньше 10: " + count) { }
+    public MyException() : base() { }
+    public MyException(string message) : base(message) { }
+    public MyException(string message, Exception exception) : base(message, exception) { }
+    protected MyException(SerializationInfo info, StreamingContext contex) : base(info, contex) { }
+
+}
+
+ public string this[int index]
+ {
+     get
+     {
+         try
+         {
+             return list[index].ToString();
+         } catch (ArgumentOutOfRangeException)
+         {
+             return "null";
+         }
+         
+     }
+ }
+
+  public string this[int index]
+ {
+     get
+     {
+         try
+         {
+             return array[index].ToString();
+         } catch (IndexOutOfRangeException)
+         {
+             return "null";
+         }
+     }
+ }
+
+ //№8
