@@ -786,3 +786,30 @@ public class MyException : ApplicationException
  }
 
  //№8
+List<ITask3> list = new(); //сюда просто добавить варианты массив/список
+ private void buttonSort_Click(object sender, EventArgs e)
+{
+    list.Sort(new SortList());
+    listBoxResult.Items.Clear();
+    foreach (var i in list)
+    {
+        listBoxResult.Items.Add(i.Name);
+    }
+}
+class SortList : IComparer<ITask3>
+{
+    public int Compare(ITask3? x, ITask3? y)
+    {
+        if (x == null || y == null)
+        {
+            return -1;
+        }
+        var compareName = x.Name.CompareTo(y.Name);
+        if (compareName != 0)
+        {
+            return compareName;
+        } 
+        
+        return 0;
+    }
+}
